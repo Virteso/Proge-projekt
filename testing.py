@@ -7,7 +7,7 @@ import random
 pg.init()
 suurus = 120
 screen = pg.display.set_mode((16 * suurus, 9 * suurus))
-pg.display.set_caption('Stickman')
+pg.display.set_caption('Actual game')
 clock = pg.time.Clock()
 georgia = pg.font.Font('src/fonts/georgia.ttf', 50)
 
