@@ -15,3 +15,20 @@ fps = 60
 
 # Surfaces
 player = pygame.draw.rect(screen, '#ffffff', (10, 10))
+
+
+
+running = 1
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+
+
+    pygame.display.flip()
+    '''pygame.display.update(rect_object)
+    can be faster but updates only the specified area(s)'''
+
+    clock.tick(fps)
