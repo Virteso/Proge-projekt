@@ -13,8 +13,8 @@ clock = pygame.time.Clock()
 # Variables
 fps = 60
 
-# Surfaces
-player = pygame.draw.rect(screen, '#ffffff', (10, 10))
+# Sprites
+
 
 
 
