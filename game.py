@@ -5,8 +5,8 @@ import random
 
 # Setup
 pygame.init()
-suurus = 120
-screen = pygame.display.set_mode((16 * suurus, 9 * suurus))
+size = 120
+screen = pygame.display.set_mode((16 * size, 9 * size))
 pygame.display.set_caption('Actual game')
 clock = pygame.time.Clock()
 
