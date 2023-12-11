@@ -22,13 +22,13 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, keys):
         dx, dy = 0, 0
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_a]:
             dx = -5
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_d]:
             dx = 5
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_w]:
             dy = -5
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_s]:
             dy = 5
 
         self.rect.x += dx
@@ -66,7 +66,7 @@ while running:
     keys = pygame.key.get_pressed()
     all_sprites.update(keys)
 
-    screen.fill((0, 0, 0))  # Fill the screen with a black background
+    screen.fill((0, 0, 0))
     all_sprites.draw(screen)
 
     pygame.display.flip()
