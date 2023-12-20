@@ -13,6 +13,7 @@ clock = pygame.time.Clock()
 # Variables
 fps = 60
 
+#Sprites
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height):
         super().__init__()
@@ -21,38 +22,25 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=(x, y))
 
     def update(self, keys):
-        dx, dy = 0, 0
-        if keys[pygame.K_a]:
-            dx = -5
-        if keys[pygame.K_d]:
-            dx = 5
-        if keys[pygame.K_w]:
-            dy = -5
-        if keys[pygame.K_s]:
-            dy = 5
+        pass
 
-        self.rect.x += dx
-        self.rect.y += dy
 
-        # Collision with the screen boundaries
-        self.rect.x = max(0, min(self.rect.x, screen.get_width() - self.rect.width))
-        self.rect.y = max(0, min(self.rect.y, screen.get_height() - self.rect.height))
-
-        # Collision with the ground
-        if pygame.sprite.spritecollide(self, ground_group, False):
-            self.rect.x -= dx
-            self.rect.y -= dy
-
-class Ground(pygame.sprite.Sprite):
-    def __init__(self, x, y, width, height):
-        super().__init__()
-        self.image = pygame.Surface((width, height))
-        self.image.fill((0, 255, 0))
-        self.rect = self.image.get_rect(topleft=(x, y))
+#Functoins
+def check_key_press(target_letter):
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            # Convert the key code to the corresponding character
+            pressed_key = pygame.key.name(event.key)
+            if pressed_key.lower() == target_letter.lower():
+                return True
+    return False
 
 # Groups
 all_sprites = pygame.sprite.Group()
-ground_group = pygame.sprite.Group()
+bullets_group = pygame.sprite.Group()
 player = Player(10, 10, size, size)
 all_sprites.add(player)
 
